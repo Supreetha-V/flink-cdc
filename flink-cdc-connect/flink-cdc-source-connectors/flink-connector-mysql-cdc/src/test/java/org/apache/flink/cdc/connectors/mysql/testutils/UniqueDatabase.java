@@ -169,9 +169,9 @@ public class UniqueDatabase {
     public void enableSSLForUser() {
         try {
             try (Connection connection =
-                   DriverManager.getConnection(
-                     container.getJdbcUrl(), username, password);
-                 Statement statement = connection.createStatement()) {
+                            DriverManager.getConnection(
+                                    container.getJdbcUrl(), username, password);
+                    Statement statement = connection.createStatement()) {
                 String alterUserSQL = String.format("ALTER USER '%s'@'%%' REQUIRE SSL;", username);
                 statement.execute(alterUserSQL);
                 statement.execute("FLUSH PRIVILEGES;");

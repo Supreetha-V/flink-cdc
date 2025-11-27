@@ -17,7 +17,6 @@
 
 package org.apache.flink.cdc.connectors.mysql.debezium;
 
-import com.github.shyiko.mysql.binlog.network.SSLMode;
 import org.apache.flink.cdc.connectors.mysql.source.config.MySqlSourceConfig;
 import org.apache.flink.cdc.connectors.mysql.source.connection.JdbcConnectionFactory;
 import org.apache.flink.cdc.connectors.mysql.source.offset.BinlogOffset;
@@ -28,6 +27,7 @@ import com.github.shyiko.mysql.binlog.BinaryLogClient;
 import com.github.shyiko.mysql.binlog.event.EventData;
 import com.github.shyiko.mysql.binlog.event.EventHeaderV4;
 import com.github.shyiko.mysql.binlog.event.RotateEventData;
+import com.github.shyiko.mysql.binlog.network.SSLMode;
 import io.debezium.config.Configuration;
 import io.debezium.connector.mysql.MySqlConnection;
 import io.debezium.connector.mysql.MySqlConnectorConfig;
@@ -248,7 +248,7 @@ public class DebeziumUtils {
             return mode == null ? null : SSLMode.valueOf(mode.name());
         } catch (IllegalArgumentException e) {
             throw new FlinkRuntimeException(
-              String.format("Invalid SecureConnectionMode provided: %s ", mode.name()), e);
+                    String.format("Invalid SecureConnectionMode provided: %s ", mode.name()), e);
         }
     }
 

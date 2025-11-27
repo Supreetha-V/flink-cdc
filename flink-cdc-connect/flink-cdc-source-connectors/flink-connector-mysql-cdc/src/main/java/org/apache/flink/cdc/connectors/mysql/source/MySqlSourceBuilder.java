@@ -199,7 +199,8 @@ public class MySqlSourceBuilder<T> {
     }
 
     /** Whether the {@link MySqlSource} should output the transaction metadata events or not. */
-    public MySqlSourceBuilder<T> includeTransactionMetadataEvents(boolean includeTransactionMetadataEvents) {
+    public MySqlSourceBuilder<T> includeTransactionMetadataEvents(
+            boolean includeTransactionMetadataEvents) {
         this.configFactory.includeTransactionMetadataEvents(includeTransactionMetadataEvents);
         return this;
     }
@@ -249,7 +250,8 @@ public class MySqlSourceBuilder<T> {
      * @param heartbeatInterval the interval of heartbeat event
      * @param includeHeartbeatEvents whether to emit heartbeat events
      */
-    public MySqlSourceBuilder<T> heartbeatInterval(Duration heartbeatInterval, boolean includeHeartbeatEvents) {
+    public MySqlSourceBuilder<T> heartbeatInterval(
+            Duration heartbeatInterval, boolean includeHeartbeatEvents) {
         this.configFactory.heartbeatInterval(heartbeatInterval);
         this.configFactory.includeHeartbeatEvents(includeHeartbeatEvents);
         return this;
